@@ -1,0 +1,21 @@
+﻿@model Post
+<div class="col-lg-8 col-md-12">
+    <!-- Blog Entry 1 -->
+    <div class="card mb-4">
+        <img src="/Images/@Model.Image" class="card-img-top" alt="Nature" />
+        <div class="card-body">
+            <h3 class="card-title"><b>@Model.Title</b></h3>
+            <h5 class="card-subtitle mb-2 text-muted">
+                @Model.Subtitle, <span class="opacity-75">@Model.Date</span>
+            </h5>
+            <p class="card-text">
+                @Model.Content
+            </p>
+        </div>
+        <div class="card-footer text-muted">
+            <span class="float-end">Comments <span class="badge bg-secondary">0</span></span>
+        </div>
+    </div>
+
+    
+</div>

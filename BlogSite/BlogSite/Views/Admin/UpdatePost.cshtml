@@ -1,0 +1,49 @@
+﻿@using BlogSite.Models
+@model Post
+
+<div class="container mt-5">
+    <h2 class="mb-4">Update Post Form</h2>
+    <form asp-action="UpdatePost" asp-controller="Admin" method="post">
+        <!-- Title -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Title"></label>
+            <input class="form-control" placeholder="Enter title" asp-for="Title">
+        </div>
+
+        <!-- Subtitle -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Subtitle"></label>
+            <input class="form-control" placeholder="Enter subtitle" asp-for="Subtitle">
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Date"></label>
+            <input class="form-control" asp-for="Date" value="@DateTime.Now.ToString("dd/MM/yyyy")" readonly>
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Image"></label>
+            <input class="form-control" placeholder="Enter image URL" asp-for="Image">
+        </div>
+
+        <!-- Slug -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Slug"></label>
+            <input class="form-control" placeholder="Enter slug" asp-for="Slug">
+        </div>
+
+        <!-- Content -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Content"></label>
+            <textarea class="form-control" asp-for="Content" id="editor"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Post</button>
+    </form>
+</div>
+
+
+

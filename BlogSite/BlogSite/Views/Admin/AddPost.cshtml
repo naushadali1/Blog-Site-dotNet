@@ -1,0 +1,53 @@
+﻿@using BlogSite.ViewModel
+@model PostVM
+
+<div class="container mt-5">
+    <h2 class="mb-4">Post Form</h2>
+    <form asp-action="AddPost" asp-controller="Admin" method="post" enctype="multipart/form-data">
+        <!-- Title -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Title"></label>
+            <input class="form-control" placeholder="Enter title" asp-for="Title">
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Subtitle"></label>
+            <input class="form-control" placeholder="Enter subtitle" asp-for="Subtitle">
+            <span class="text-danger" asp-validation-for="Subtitle"></span>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Date"></label>
+            <input class="form-control" asp-for="Date" value="@DateTime.Now.ToString("dd/MM/yyyy")" readonly>
+           
+        </div>
+
+        <!-- Slug -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Slug"></label>
+            <input class="form-control" placeholder="Enter slug" asp-for="Slug">
+            <span class="text-danger" asp-validation-for="Slug"></span>
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Image"></label>
+            <input class="form-control" placeholder="Enter image URL" asp-for="Image">
+            <span class="text-danger" asp-validation-for="Image"></span>
+        </div>
+
+        <!-- Content -->
+        <div class="form-group">
+            <label class="form-label" asp-for="Content"></label>
+            <textarea class="form-control" asp-for="Content" id="editor"></textarea>
+            <span class="text-danger" asp-validation-for="Content"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Post>
+
+<div class="col-lg-8 col-md-12">
+
+@foreach(var item in Model)
+    {
+    <!-- Blog Entry 1 -->
+    <div class="card mb-4">
+        <img src="/Images/@item.Image" class="card-img-top" alt="Nature" />
+        <div class="card-body">
+            <h3 class="card-title"><b>@item.Title</b></h3>
+            <h5 class="card-subtitle mb-2 text-muted">
+                @item.Subtitle <span class="opacity-75">@item.Date</span>
+            </h5>
+            <p class="card-text">
+                    @if (item.Content.Length < 100)
+                        {
+                        @item.Content;
+                        }
+                    else
+                        {
+                        @item.Content.Substring(0, 120);
+                        }
+                </p>
+            <a asp-controller="Home" asp-action="Post" asp-route-Slug="@item.Slug" class="btn btn-outline-primary btn-sm">READ MORE »</a>
+        </div>
+        <div class="card-footer text-muted">
+            <span class="float-end">Comments <span class="badge bg-secondary">0</span></span>
+        </div>
+    </div>
+    }
+
+    @if (!Model.Any())
+        {
+        <div class="card text-center">
+            <div class="card-header">
+                item not found
+            </div>
+            <div class="card-body ">
+                <h5 class="my-4">your search query not found</h5>
+                <a asp-action="index" asp-controller="home" class="btn btn-primary">Go back Home Page</a>
+            </div>
+        </div>
+        }
+</div>
